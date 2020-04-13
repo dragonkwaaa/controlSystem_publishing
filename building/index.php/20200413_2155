@@ -1,0 +1,283 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/controlSystem/common/page/head.php'; ?>
+<body>
+<div class="container">
+	<div class="contents">
+		<div class="section pageTop">
+			<div class="leftGroup">
+				<div class="iconCase">
+					<a href="javascript:void(0);" class="hamburgerIcon">
+						<img src="/controlSystem/common/img/icon_hamburger.png" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="centerGroup">
+				<div class="pageTitle">
+					통합관제시스템
+				</div>
+			</div>
+			<div class="rightGroup">
+				<div class="timeCase">
+					2020-01-10 14:45:55
+				</div>
+			</div>
+		</div>
+		<div class="section mainControl">
+			<div class="leftGroup">
+				<div class="searchComp">
+					<div class="relative">
+						<input type="text" class="tbox full" placeholder="search">
+						<a href="javascript:void(0);" class="btn searchBtn">
+							<img src="/controlSystem/common/img/icon_search.png">
+						</a>
+					</div>
+					<ul class="searchResult">
+						<li>가나다 중학교</li>
+						<li>나나 중학교</li>
+						<li>나미 중학교</li>
+						<li class="searchNone" style="display : none;">Empty</li>
+					</ul>
+				</div>
+			</div>
+			<!-- :: 지역구 지도 파트.  -->
+			<div class="centerGroup subLocation">
+				<div class="areaMap">
+					<a href="javascript:void(0);" class="mainArea">전체</a>
+					<span>></span>
+					<a href="javascript:void(0);" class="subArea">서울</a>
+				</div>
+				<div class="mapComp">
+					<!-- :: 지도 -->
+					<div class="ourMap">
+					</div>
+					<!-- :: 로컬 포인트 -->
+					<div class="localPoint">
+						<div class="infoBox">
+							<div class="title">
+								가나다 중학교
+							</div>
+							<div class="boxCon">
+								서울시 마포구 마포대로
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- :: 회전 메뉴 구간 -->
+				<div class="rotationgMenu">
+				</div>
+			</div>
+			<div class="rightGroup">
+				<!-- :: 외부 공기질 구간 -->
+				<div class="statusComp externalAir">
+					<div class="title">
+						현재 외부 공기질
+					</div>
+					<div class="compCon">
+						<table class="statusTable">
+							<colgroup>
+								<col width="50%">
+								<col width="50%">
+							</colgroup>
+							<tbody>
+							<tr>
+								<td>
+									초미세먼지
+								</td>
+								<td>
+									미세먼지
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="statusLight good"></i>
+									<span>30</span>
+								</td>
+								<td>
+									<i class="statusLight good"></i>
+									<span>30</span>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- :: 농도범위 구간 -->
+				<div class="statusComp density">
+					<div class="title">
+						농도범위
+					</div>
+					<div class="compCon">
+						
+						<ul>
+							<li>
+								<i class="statusLight good"></i>
+								<span>좋음(0~15)</span>
+							</li>
+							<li>
+								<i class="statusLight normal"></i>
+								<span>보통(16~30)</span>
+							</li>
+							<li>
+								<i class="statusLight bad"></i>
+								<span>나쁨(31~45)</span>
+							</li>
+							<li>
+								<i class="statusLight worst"></i>
+								<span>매우나쁨(46~60)</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- :: 미세먼지 그래프 구간 -->
+				<div class="statusComp fineDust">
+					<div class="title">
+						미세먼지 그래프
+					</div>
+					<div class="compCon">
+						<div class="statusGraph">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottomGroup">
+				<div class="noticeComp">
+					<div class="barTitle">공지사항</div>
+					<div class="noticeSlider">
+						<div>슬라이더 공지사항 1</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script src="../common/js/d3.min.js"></script>
+<script src="../common/js/topojson.v0.min.js"></script>
+
+
+<!-- :: 테스트용 히얌 서브 지도 -->
+<!-- :: 보충설명 : 자잘한 범위로 따로 표시되는 도서지역이나 소규모 도시는 해당 <path> 태그의 내용을 큰 범주에 붙여넣기(기존 내용에 그냥 추가로 붙이면 됨) 하고 path 를 제거하면 된다. -->
+<script>
+
+$(document).ready(function(){
+    // $(".dg-map-area").load("../common/misc/map.html");
+
+	$(".ourMap").load("/controlSystem/common/misc/subLocalMap.html");
+});
+
+// :: 마우스를 올렸을 때 지도의 특정 구역 색상이 변하는 스크립트
+$(document).on('mouseover', '.kwaaa svg', function() {
+
+	var _path			=	event.target;
+	// var city_name		=	_path.id;
+	// var new_p			=	document.createElement('p');
+	var province		=	$(_path).parent()[0].id;
+	var _path_fill		=	d3.select(_path).style("fill");				//fill 스타일 색상 가져옴
+
+	$('.kwaaa svg g path:not('+province+')').css("fill", "rgb(6, 73, 122)");
+
+	// :: 현재 마우스 위치의 지역 색상값 변경
+	// :: "path" 태그에만 반응함.(지도 위에 찍힌 점의 색깔은 변하지 않음.)
+	// :: 검은색(비활성화)일 경우 선택영역으로 변경
+	if($(event.target).is("path")){
+		if(_path_fill == 'rgb(6, 73, 122)'){
+			// d3.select(_path).style("fill", "#0869a5")
+			d3.select(_path).style("fill", "rgb(8, 105, 165)");
+		} 
+	
+	//선택영역일 경우 검은색(비활성화)로 변경
+	}	else if($(event.target).is("circle")){
+			d3.select('path').style("fill", "rgb(8, 105, 165)");
+	}	else {
+			// d3.select(_path).style("fill", "#06497a");
+			// d3.select(_path).style("fill", "rgb(6, 73, 122)");
+			d3.select(_path).style("fill", "rgb(8, 105, 165)");
+	}
+		
+});
+
+
+
+// $(window).on('load', function(){
+// 	let	$localPointInfo = $(".localPoint .infoBox");
+
+// 	$('circle').hover(function() {
+
+// 	 $(this).attr("class", "province heyo");
+// 	  $localPointInfo.addClass('active');
+// 	  $localPointInfo.html($(this).attr('id'));
+// 	}, function() {
+// 	  $localPointInfo.removeClass('active');
+// 	});
+// });
+
+
+$(document).on('click', 'circle', function(){
+	let	localPointInfo = $(".localPoint .infoBox");
+
+
+	$('circle').removeClass("marked");
+
+	$(this).attr("class", "marked");
+	// $localPointInfo.addClass('active');
+	// $localPointInfo.html($(this).attr('id'));
+
+	// $localPointInfo.removeClass('active');
+
+	$(this).one('click', function(e){
+	    localPointInfo.css('top', e.pageY - 200);
+	    localPointInfo.css('left', e.pageX -800);
+		localPointInfo.addClass('active');
+
+		// localPointInfo.html($(this).attr('id'));
+	});
+
+
+});
+
+// :: 디스크립션 박스가 한번 클릭한 위치에 뜨게 만드는 스크립트. 지금은 그냥 아무렇게나 처음 클릭한 위치에 뜨게 되어 있으므로, 바로 위쪽의 스크립트 내부로 넣어서 동그라미 클릭 시에만 한번 기능하게 만들어야 함. 
+// $(document).one('mousedown', function(e){
+//     $('.description').css('top', e.pageY);
+//     $('.description').css('left', e.pageX);
+// });
+
+
+$(document).on('click', 'path', function(){
+	$('circle').removeClass("marked");
+	$('.localPoint .infoBox').removeClass('active');
+});
+
+
+
+
+
+
+
+
+// :: 원본 디스크립션 스크립트.
+// $description = $(".description");
+//   $('.province').hover(function() {
+//     $(this).attr("class", "province heyo");
+//     $description.addClass('active');
+//     $description.html($(this).attr('id'));
+//   }, function() {
+//     $description.removeClass('active');
+//   });
+// $(document).on('mousemove', function(e){
+//   $description.css({
+//     left:  e.pageX,
+//     top:   e.pageY - 70
+//   });
+// });
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
