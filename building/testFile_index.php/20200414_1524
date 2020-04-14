@@ -1,0 +1,448 @@
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/controlSystem/common/page/head.php'; ?>
+<body>
+<div class="container">
+	<div class="contents">
+		<div class="section pageTop">
+			<div class="leftGroup">
+				<div class="iconCase">
+					<a href="javascript:void(0);" class="hamburgerIcon">
+						<img src="/controlSystem/common/img/icon_hamburger.png" alt="">
+					</a>
+				</div>
+			</div>
+			<div class="centerGroup">
+				<div class="pageTitle">
+					통합관제시스템
+				</div>
+			</div>
+			<div class="rightGroup">
+				<div class="timeCase">
+					2020-01-10 14:45:55
+				</div>
+			</div>
+		</div>
+		<div class="section mainControl">
+			<div class="leftGroup">
+				<div class="searchComp">
+					<div class="relative">
+						<input type="text" class="tbox full" placeholder="search">
+						<a href="javascript:void(0);" class="btn searchBtn">
+							<img src="/controlSystem/common/img/icon_search.png">
+						</a>
+					</div>
+					<ul class="searchResult">
+						<li>가나다 중학교</li>
+						<li>나나 중학교</li>
+						<li>나미 중학교</li>
+						<li class="searchNone" style="display : none;">Empty</li>
+					</ul>
+				</div>
+			</div>
+
+
+
+
+
+
+
+			<!-- :: ksg_20200413_2158 open 센터  파트  -->
+			<div class="centerGroup">
+
+				<!-- :: ksg_20200413_2202 single : 상단 지역구 선택 버튼 -->
+				<div class="areaMap initialMod">
+					<a href="javascript:void(0);" class="mainArea">전체</a>
+					<i class="arrowRighttIcon"></i>
+					<a href="javascript:void(0);" class="subArea">시설물 관리</a>
+				</div>
+
+
+				<!-- :: ksg_20200414_1036 open : 상단 전체시설물 등 탭 파트 -->
+				<ul class="tabBox">
+					<li>
+						<a href="javascript:void(0);" class="tabBtn activated">전체 시설물</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="tabBtn">시설물 관리</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" class="tabBtn">기기 관리</a>
+					</li>
+				</ul>
+
+				<!-- :: ksg_20200414_1123 open : 중앙 시설물 관리 테이블 파트  -->
+				<div class="tableGroup">
+
+					<!-- :: ksg_20200414_1123 single : 테이블 상단 버튼 파트  -->
+					<div class="tableControlBox">
+						<a href="javascript:void(0);" class="controlBtn">시설물 추가</a>
+					</div>
+				
+
+
+
+					<!-- :: ksg_20200414_1142 single : 테이블 파트 -->
+					<div class="tableColorShell">
+						<table class="buildingListSort">
+							<colgroup>
+								<col width="5%"/>
+								<col width="12%"/>
+								<col width="12%"/>
+								<col width="12%"/>
+								<col width="12%"/>
+								<col width="13%"/>
+								<col width="12%"/>
+								<col width="12%"/>
+								<col width="5%"/>
+							</colgroup>
+							<thead>
+								<th>메모</th>
+								<th>시설물명</th>
+								<th>주소</th>
+								<th>연락처</th>
+								<th>관리업체</th>
+								<th>관리자</th>
+								<th>마지막로그인</th>
+								<th>등록일</th>
+								<th>관리</th>
+							</thead>
+							<tbody>
+							<tr>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">메모</a>
+								</td>
+								<td>
+									<div>마포고등학교</div>
+								</td>
+								<td>
+									<div>서울시 마포구 마포대로 36</div>
+								</td>
+								<td>
+									<div>010-1233-567*</div>
+								</td>
+								<td>
+									<div>에이디치히얌</div>
+									<div>서울북부교육청</div>
+								</td>
+								<td>
+									<div>bububu</div>
+									<div>1234-4666-444*</div>
+								</td>
+								<td>
+									<div>2020-03-05</div>
+									<div>18:00</div>
+								</td>
+								<td>
+									<div>2020-03-08</div>
+									<div>11:00</div>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">수정</a>
+									<a href="javascript:void(0);" class="innerBtn delBtnSort">삭제</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">메모</a>
+								</td>
+								<td>
+									<div>마포고등학교</div>
+								</td>
+								<td>
+									<div>서울시 마포구 마포대로 36</div>
+								</td>
+								<td>
+									<div>010-1233-567*</div>
+								</td>
+								<td>
+									<div>에이디치히얌</div>
+									<div>서울북부교육청</div>
+								</td>
+								<td>
+									<div>bububu</div>
+									<div>1234-4666-444*</div>
+								</td>
+								<td>
+									<div>2020-03-05</div>
+									<div>18:00</div>
+								</td>
+								<td>
+									<div>2020-03-08</div>
+									<div>11:00</div>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">수정</a>
+									<a href="javascript:void(0);" class="innerBtn delBtnSort">삭제</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">메모</a>
+								</td>
+								<td>
+									<div>마포고등학교</div>
+								</td>
+								<td>
+									<div>서울시 마포구 마포대로 36</div>
+								</td>
+								<td>
+									<div>010-1233-567*</div>
+								</td>
+								<td>
+									<div>에이디치히얌</div>
+									<div>서울북부교육청</div>
+								</td>
+								<td>
+									<div>bububu</div>
+									<div>1234-4666-444*</div>
+								</td>
+								<td>
+									<div>2020-03-05</div>
+									<div>18:00</div>
+								</td>
+								<td>
+									<div>2020-03-08</div>
+									<div>11:00</div>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">수정</a>
+									<a href="javascript:void(0);" class="innerBtn delBtnSort">삭제</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">메모</a>
+								</td>
+								<td>
+									<div>마포고등학교</div>
+								</td>
+								<td>
+									<div>서울시 마포구 마포대로 36</div>
+								</td>
+								<td>
+									<div>010-1233-567*</div>
+								</td>
+								<td>
+									<div>에이디치히얌</div>
+									<div>서울북부교육청</div>
+								</td>
+								<td>
+									<div>bububu</div>
+									<div>1234-4666-444*</div>
+								</td>
+								<td>
+									<div>2020-03-05</div>
+									<div>18:00</div>
+								</td>
+								<td>
+									<div>2020-03-08</div>
+									<div>11:00</div>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">수정</a>
+									<a href="javascript:void(0);" class="innerBtn delBtnSort">삭제</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">메모</a>
+								</td>
+								<td>
+									<div>마포고등학교</div>
+								</td>
+								<td>
+									<div>서울시 마포구 마포대로 36</div>
+								</td>
+								<td>
+									<div>010-1233-567*</div>
+								</td>
+								<td>
+									<div>에이디치히얌</div>
+									<div>서울북부교육청</div>
+								</td>
+								<td>
+									<div>bububu</div>
+									<div>1234-4666-444*</div>
+								</td>
+								<td>
+									<div>2020-03-05</div>
+									<div>18:00</div>
+								</td>
+								<td>
+									<div>2020-03-08</div>
+									<div>11:00</div>
+								</td>
+								<td>
+									<a href="javascript:void(0);" class="innerBtn">수정</a>
+									<a href="javascript:void(0);" class="innerBtn delBtnSort">삭제</a>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+
+
+						<!-- :: 페이징 파트 -->
+						<ul class="pagingBox">
+							<!-- <li>
+								<a href="javascript:void(0);" class="prevBtn"></a>
+							</li> -->
+							<li>
+								<a href="javascript:void(0);" class="pagingBtn activated">1</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="pagingBtn">2</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="pagingBtn">3</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="pagingBtn">4</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="pagingBtn">5</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="nextBtn"></a>
+							</li>
+						</ul>
+
+
+
+					</div>
+
+
+
+					
+
+
+
+				</div>
+				<!-- :: ksg_20200414_1123 close : 중앙 시설물 관리 테이블 파트  -->
+
+
+
+			
+			</div>
+			<!-- :: ksg_20200413_2158 close 센터  파트  -->
+
+
+
+
+
+			
+			<div class="rightGroup">
+				<!-- :: 외부 공기질 구간 -->
+				<div class="statusComp externalAir">
+					<div class="title">
+						현재 외부 공기질
+					</div>
+					<div class="compCon">
+						<table class="statusTable">
+							<colgroup>
+								<col width="50%">
+								<col width="50%">
+							</colgroup>
+							<tbody>
+							<tr>
+								<td>
+									초미세먼지
+								</td>
+								<td>
+									미세먼지
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="statusLight good"></i>
+									<span>30</span>
+								</td>
+								<td>
+									<i class="statusLight good"></i>
+									<span>30</span>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- :: 농도범위 구간 -->
+				<div class="statusComp density">
+					<div class="title">
+						농도범위
+					</div>
+					<div class="compCon">
+						
+						<ul>
+							<li>
+								<i class="statusLight good"></i>
+								<span>좋음(0~15)</span>
+							</li>
+							<li>
+								<i class="statusLight normal"></i>
+								<span>보통(16~30)</span>
+							</li>
+							<li>
+								<i class="statusLight bad"></i>
+								<span>나쁨(31~45)</span>
+							</li>
+							<li>
+								<i class="statusLight worst"></i>
+								<span>매우나쁨(46~60)</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+
+
+
+
+				<!-- :: 미세먼지 그래프 구간 -->
+				<div class="statusComp fineDust">
+					<div class="title">
+						미세먼지 그래프
+					</div>
+					<div class="compCon">
+						<div class="statusGraph">
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+			<div class="bottomGroup">
+				<div class="noticeComp">
+					<div class="barTitle">공지사항</div>
+					<div class="noticeSlider">
+						<div>가나다 중학교 미세먼지 나쁨</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+// :: 전체시설물, 시설물관리, 기기관리 탭 선택시 색상 변경 스크립트.
+$(document).on('click', 'a.tabBtn', function(){
+	$('.tabBox a.tabBtn').removeClass('activated');
+	$(this).addClass('activated');
+});
+
+
+// :: 테이블 페이징 스크립트.
+$(document).on('click', '.pagingBtn', function(){
+	$('.pagingBox .pagingBtn').removeClass('activated');
+	$(this).addClass('activated');
+});
+
+</script>
+
+
+</body>
+</html>
+
